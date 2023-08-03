@@ -1,41 +1,42 @@
 import java.util.Scanner;
-
 public class GradeCalculator {
-	public static void main(String[] args) {
-		// 1. Initialize any variables and objects you need (i.e. a scanner, some
-		// counters for a total running sum, and a number tracking the # of scores inputted
+    public static void main(String[] args) {
+        Scanner userInput = new Scanner(System.in);
+        int runningSum = 0;
+        int totalInputs = 0;
 
-		
-		
-		
-		
-		// 2. Make a loop that repeatedly asks the user for a number and won't stop
-		// until the user answers using a negative number
-		// 3. Add some error checking for when a user inputs a number over 100 - we
-		// should skip that input and start the loop
-		// over to ask again
+        while (true) {
+            System.out.println("Please Input an Number!");
+            int currentUserGuess = userInput.nextInt();
 
-		
-		
-		
-		
-		// 4. Calculate the average of all scores collected during the loop
+            if (currentUserGuess < 0) {
+                System.out.println("Well Done!");
+                break;
+            }
 
-		
-		
-		
-		
-		
-		
-		// 5. Display the average grade and corresponding message
-		// - If over 90: "Excellent Work!"
-		// - If over 80: "Good Job!"
-		// - If over 70: "Keep it up!"
-		// - anything else: "Let's work hard to get those grades up!"
+            if (currentUserGuess > 100) {
+                System.out.println("Please Input a Number less than 100.");
+                continue;
+            }
+            runningSum += currentUserGuess;
+            totalInputs++;
+        }
 
-		
-		
-		
-		
-	}
+        if ( totalInputs > 0) {
+            int averageGrade = runningSum / totalInputs;
+
+            if (averageGrade > 90) {
+                System.out.println(averageGrade + " Excellent Work!");
+            } else if (averageGrade > 80) {
+                System.out.println(averageGrade + "Good Job!");
+            } else if (averageGrade > 70) {
+                System.out.println(averageGrade + " Keep it up");
+            } else if (averageGrade > 60) {
+                System.out.println(averageGrade + " Let's work hard to get those grades up!");
+            }
+
+
+        }
+    }
 }
+
